@@ -1,6 +1,8 @@
 # portfolio
 A website of my projects, interests, and professional experience.
 
+Currently hosted at: http://people.ischool.berkeley.edu/~juanshishido/.
+
 ## To Do
 * Add a img hover options
 * Create a Dbot page
