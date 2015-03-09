@@ -1,0 +1,108 @@
+body {
+	font-family: 'PT Sans';
+	font-size: 0.90em;
+	color: DimGray;
+	background: #f8f8f8;
+}
+
+h1 {
+	color: black;
+	font-size: 3em;
+	text-transform: uppercase;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+h2 {
+	color: black;
+	font-size: 1.75em;
+	text-transform: uppercase;
+	padding-bottom: 0.2em;
+	margin-bottom: 0.2em;
+}
+
+h3 {
+	color: black;
+	font-size: 1.25em;
+	padding: 0px;
+	margin: 0px;
+}
+
+p {
+	font-size: 1em;
+}
+
+a {
+	/*color: #1fa1fa;*/
+	color: DarkGray;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+#wrapper {
+	width: 950px;
+	margin: 0 auto;
+	background: white
+}
+
+#contact {
+	margin-left: 50px;
+	margin-right: 50px;
+	color: DarkGray;
+}
+
+#header {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+#top {
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+#main {
+	margin-left: 50px;
+	margin-right: 50px;
+	clear: both;
+	background: white;
+}
+
+#education, #professional, #sidebar {
+	float: left;
+	background: white;
+}
+
+#sidebar {
+	margin-left: 50px;
+	width: 300px;
+}
+
+#sidebar ul {
+	padding: 0%;
+	margin: 1%;
+}
+
+#sidebar li {
+	list-style-type: none;
+	line-height: 1.5em;
+	margin: 0.5em 0;
+}
+
+#education, #professional {
+	width: 500px;
+}
+
+#footer {
+	width: 850px;
+	margin-left: 50px;
+	margin-right: 50px;
+	clear: both;
+	color: DarkGray;
+	background: white;
+}
