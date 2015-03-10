@@ -1,96 +1,96 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
+    <head>
 
-		<title>Location History</title>
+        <title>Location History</title>
 
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
 
-	    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	    <script src="http://d3js.org/d3.hexbin.v0.min.js" charset="utf-8"></script>
-	    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-	    <script src="leaflet.d3.js" charset="utf-8"></script>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.scrolly.min.js"></script>
-		<script src="js/jquery.scrollgress.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="http://d3js.org/d3.hexbin.v0.min.js" charset="utf-8"></script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script src="leaflet.d3.js" charset="utf-8"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.scrolly.min.js"></script>
+        <script src="js/jquery.scrollgress.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-layers.min.js"></script>
+        <script src="js/init.js"></script>
 
-		<script src='geojson/sftraffic.js'></script>
+        <script src='geojson/sftraffic.js'></script>
 
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-			<link rel="stylesheet" href="css/style-wide.css" />
-			<link rel="stylesheet" href="css/style-noscript.css" />
-		</noscript>
+        <noscript>
+            <link rel="stylesheet" href="css/skel.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-wide.css" />
+            <link rel="stylesheet" href="css/style-noscript.css" />
+        </noscript>
 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="js/smoothscroll.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="js/smoothscroll.js"></script>
 
-		<style>
-		    .hexbin-hexagon {
-		        stroke: #000;
-		        stroke-width: .5px;
-		    }
+        <style>
+            .hexbin-hexagon {
+                stroke: #000;
+                stroke-width: .5px;
+            }
 
-		</style>
+        </style>
 
-	</head>
+    </head>
 
 
-	<body class="index">
+    <body class="index">
 
-		<!-- Header -->
-		<header id="header" style="position: fixed; top: 0px; left: 0px; right: 0px; z-index: 1030;">
-			<h1 id="logo"><a href="http://people.ischool.berkeley.edu/~juanshishido/">Home</a></h1>
-			<nav id="nav">
-				<ul>
-                	<li><a href="#top" class="smoothScroll">^</a></li>
-					<li><a href="#contact" class="smoothScroll">Contact</a></li>
-				</ul>
-			</nav>
-		</header>
+        <!-- Header -->
+        <header id="header" style="position: fixed; top: 0px; left: 0px; right: 0px; z-index: 1030;">
+            <h1 id="logo"><a href="http://people.ischool.berkeley.edu/~juanshishido/">Home</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#top" class="smoothScroll">^</a></li>
+                    <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-		<!-- Main -->
-		<article id="main">
+        <!-- Main -->
+        <article id="main">
 
-			<!-- 2014 Location History -->
-			<div id="top">
-				<section class="wrapper style3 container">
+            <!-- 2014 Location History -->
+            <div id="top">
+                <section class="wrapper style3 container">
 
-					<header>
-						<h2><center>2014 Location History</center></h2>
-					</header>
-					
-					<!-- Text -->
-					<p>
-				        After reading <a href="https://twitter.com/tylerhartley" target="_blank">Tyler Hartley</a>'s <a href="http://beneathdata.com/how-to/visualizing-my-location-history/" target="_blank">Visualizing My Location History with Python, Shapely, and Basemap</a> post, I was curious to explore my own location data. With the new year upon us, I decided to take a look back at my whereabouts in 2014.
-				    </p>
-				    <p>
-				        Because I have Google's <a href="https://support.google.com/gmm/answer/3118687?hl=en" target="_blank">Location History</a> turned on, there is a record of all the places my phone's been. Users are able to download their location history, with latitude and longitude values, as well as data from several of Google's other products, using a service called <a href="https://www.google.com/settings/takeout" target="_blank">Takeout</a>. My location history was stored in a <font face="times new roman">JSON</font> file that I could process using <a href="https://www.python.org/" target="blank">Python</a>.
-				    </p>
-				    <p>
-				        With that, I loaded my data into a <a href="http://pandas.pydata.org/" target="_blank">Pandas</a> DataFrame, keeping just the 451,092 observations for 2014. According to Tyler's blog post, GPS location data is sent to Google once every 60 seconds. This is dependent on the device being on and in an area with mobile network reception. My data represents about 86% of the minutes in 2014. If you're curious, take a look at the <a href="http://ipython.org/" target="_blank">IPython Notebook</a> that includes the code to <a href="locationhistorydata.html">process the data</a>.
-				    </p>
-				    <p>
-				        The first approach I considered was plotting the coordinates on a <a href="http://leafletjs.com/" target="_blank">Leaflet</a> map. However, with the number of data points in my 2014 file, that was going to be problematic. I took a random sample of 20,000 points. Still, the performance of that map suffered due to the number of points needing to be rendered.
-				    </p>
-				    <p>
-				        In addition to the choropleth map, Tyler shows a hexbin map of his location history. Binning is a way to reduce the number data points by aggregation. For more on hexbins, see indiemaps' <a href="http://indiemaps.com/blog/2011/10/hexbins/" target="_blank">blog post</a>. So, I set out to find a way to create a hexbin layer on my Leaflet map. Luckily, I came across <a href="https://twitter.com/rblace" target="_blank">Ryan Blace</a>'s <a href="https://github.com/Asymmetrik/leaflet-d3" target="_blank">Leaflet D3 Plugin</a>. What's great about Ryan's work is that it "leverages the data-binding power of D3 to allow you to dynamically update the data and visualize the transitions."
-				    </p>
+                    <header>
+                        <h2><center>2014 Location History</center></h2>
+                    </header>
+                    
+                    <!-- Text -->
+                    <p>
+                        After reading <a href="https://twitter.com/tylerhartley" target="_blank">Tyler Hartley</a>'s <a href="http://beneathdata.com/how-to/visualizing-my-location-history/" target="_blank">Visualizing My Location History with Python, Shapely, and Basemap</a> post, I was curious to explore my own location data. With the new year upon us, I decided to take a look back at my whereabouts in 2014.
+                    </p>
+                    <p>
+                        Because I have Google's <a href="https://support.google.com/gmm/answer/3118687?hl=en" target="_blank">Location History</a> turned on, there is a record of all the places my phone's been. Users are able to download their location history, with latitude and longitude values, as well as data from several of Google's other products, using a service called <a href="https://www.google.com/settings/takeout" target="_blank">Takeout</a>. My location history was stored in a <font face="times new roman">JSON</font> file that I could process using <a href="https://www.python.org/" target="blank">Python</a>.
+                    </p>
+                    <p>
+                        With that, I loaded my data into a <a href="http://pandas.pydata.org/" target="_blank">Pandas</a> DataFrame, keeping just the 451,092 observations for 2014. According to Tyler's blog post, GPS location data is sent to Google once every 60 seconds. This is dependent on the device being on and in an area with mobile network reception. My data represents about 86% of the minutes in 2014. If you're curious, take a look at the <a href="http://ipython.org/" target="_blank">IPython Notebook</a> that includes the code to <a href="locationhistorydata.html">process the data</a>.
+                    </p>
+                    <p>
+                        The first approach I considered was plotting the coordinates on a <a href="http://leafletjs.com/" target="_blank">Leaflet</a> map. However, with the number of data points in my 2014 file, that was going to be problematic. I took a random sample of 20,000 points. Still, the performance of that map suffered due to the number of points needing to be rendered.
+                    </p>
+                    <p>
+                        In addition to the choropleth map, Tyler shows a hexbin map of his location history. Binning is a way to reduce the number data points by aggregation. For more on hexbins, see indiemaps' <a href="http://indiemaps.com/blog/2011/10/hexbins/" target="_blank">blog post</a>. So, I set out to find a way to create a hexbin layer on my Leaflet map. Luckily, I came across <a href="https://twitter.com/rblace" target="_blank">Ryan Blace</a>'s <a href="https://github.com/Asymmetrik/leaflet-d3" target="_blank">Leaflet D3 Plugin</a>. What's great about Ryan's work is that it "leverages the data-binding power of D3 to allow you to dynamically update the data and visualize the transitions."
+                    </p>
 
-				    <!-- The map element -->
-				    <center>
+                    <!-- The map element -->
+                    <center>
                         <font size="2">Click "Load data" to populate the map.<sup><font size="1">1</font></sup></font>
-				        <div id="map" style="width: 100%; height: 575px; border: 1px solid #ccc"></div>
-				        <font size="1"><sup>1</sup>The data has been scrubbed to make it less obvious where I live.</font><br>
+                        <div id="map" style="width: 100%; height: 575px; border: 1px solid #ccc"></div>
+                        <font size="1"><sup>1</sup>The data has been scrubbed to make it less obvious where I live.</font><br>
                         <a href="javascript:{}" onclick="generateData()">Load data</a><br>
                         <br>
-				    </center>
+                    </center>
 
-				    <!-- More Text -->
+                    <!-- More Text -->
                     <p>
                         The coordinates are aggregated within each hexagon, with the darker bins representing more data points. As the map is zoomed, the hexbins change to reflect the area they cover. Try zooming out to see the extent of where I've been.
                     </p>
@@ -100,26 +100,27 @@
                         A big thanks to Tyler and Ryan for their work, which inspired me to create this visualization. This is my first experience using <a href="http://d3js.org/" target="_blank">D3</a> and am looking forward to my next project.
                     </p>
 
-				</section>
-			</div>
+                </section>
+            </div>
+        </article>
 
-		<!-- Footer -->
-		<div id="contact">
-			<footer id="footer">
+        <!-- Footer -->
+        <div id="contact">
+            <footer id="footer">
 
-				<h2><strong>Contact</strong></h2>
-				<ul class="icons">
-					<li><a href="http://www.linkedin.com/in/juanshishido/" class="icon circle fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://twitter.com/juanshishido" class="icon circle fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
-					<li><a href="https://github.com/juanshishido" class="icon circle fa-github" target="_blank"><span class="label">Github</span></a></li>
-				</ul>
+                <h2><strong>Contact</strong></h2>
+                <ul class="icons">
+                    <li><a href="http://www.linkedin.com/in/juanshishido/" class="icon circle fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://twitter.com/juanshishido" class="icon circle fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://github.com/juanshishido" class="icon circle fa-github" target="_blank"><span class="label">Github</span></a></li>
+                </ul>
 
-				<ul class="copyright">
-					<li><a href="http://people.ischool.berkeley.edu/~juanshishido/" class="smoothScroll">Juan Shishido</a></li><li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
-				</ul>
+                <ul class="copyright">
+                    <li><a href="http://people.ischool.berkeley.edu/~juanshishido/" class="smoothScroll">Juan Shishido</a></li><li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+                </ul>
 
-			</footer>
-		</div>
+            </footer>
+        </div>
 
 
     <script>
@@ -184,5 +185,5 @@
     </script>
 
 
-	</body>
+    </body>
 </html>
