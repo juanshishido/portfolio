@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>dbot</title>
+
+        <meta charset="UTF-8">
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.scrolly.min.js"></script>
+        <script src="js/jquery.scrollgress.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-layers.min.js"></script>
+        <script src="js/init.js"></script>
+
+        <noscript>
+            <link rel="stylesheet" href="css/skel.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-wide.css" />
+            <link rel="stylesheet" href="css/style-noscript.css" />
+        </noscript>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="js/smoothscroll.js"></script>
+
+
+    </head>
+
+
+    <body class="index">
+
+       <!-- Header -->
+        <header id="header" style="position: fixed; top: 0px; left: 0px; right: 0px; z-index: 1030;">
+            <h1 id="logo"><a href="index.html">Home</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#top" class="smoothScroll">^</a></li>
+                    <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        <article id="main">
+
+            <!-- Emoji -->
+            <div id="top">
+                <section class="wrapper style3 container">
+
+                    <header>
+                        <h2><center>dbot</center></h2>
+                    </header>
+                    
+                    <!-- Text -->
+                    <h3>Need</h3>
+                    <p>
+                        Code is great for automating. This is especially true for repetitive tasks. The <a href="dlab.berkeley.edu" target="_blank">D-Lab</a> posts information on upcoming workshops to <a href="https://twitter.com/DLabAtBerkeley" target="_blank">their Twitter</a> account. Because they have so many offerings, having a human post updates becomes time consuming. Last fall, <a href="http://digifesto.com/" target="_blank">Sebastian Benthall</a> and I wrote a Python script, creating dbot, to take care that.
+                    </p>
+                    <h3>Approach</h3>
+                    <p>
+                        There are multiple ways of accessing information on upcoming trainings from the D-Lab's website. We chose the <a href="http://dlab.berkeley.edu/training/rss.xml" target="_blank">RSS feed</a>. This page lists the workshop names, the event URL, and the date the page was published. What's good about this source of information is that is has many entries for both previous and upcoming trainings. This eliminates the need to paginate to access needed workshop information. Parsing the data from this page provides a central location from which other information, such as additional workshop statistics, can be collected in the future.
+                    </p>
+                    <p>
+                        Because the RSS feed does not contain information on when the workshops happened or will happen, we collect the training title and its associated URL. We store this in a <a href="http://pandas.pydata.org/" target="_blank">pandas</a> DataFrame, which we then use to access each individual training page. The training pages have lots of information. In addition to date and time, there is information on instructors and their bios, a description of the workshop, and the registration link. Because Twitter has a 140 character limit, we focus on the title, the data and time, and the URL for registration.
+                    </p>
+                    <h3>Creation</h3>
+                    <p>
+                        At each training page, we pull the desired information using <a href="http://www.crummy.com/software/BeautifulSoup/" target="_blank">BeautifulSoup</a>. This was my first project parsing HTML and bs4, as its called, made it quite simple.
+                    </p>
+                    <p>
+                        Below is an example of the final product.
+                        <center><blockquote class="twitter-tweet" lang="en"><p>&quot;Keeping it Simple with R Markdown&quot; happens on 03/20. Register now: <a href="http://t.co/c4YAKViYSP">http://t.co/c4YAKViYSP</a></p>&mdash; D-Lab (@DLabAtBerkeley) <a href="https://twitter.com/DLabAtBerkeley/status/576413328463032320">March 13, 2015</a></blockquote></center>
+                        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </p>
+                    <p>
+                        Once we have the data, the fun part is creating the tweets. Because of the 140 character limit, we are selective about what information to include. Currently, we include the entire workshop title, the date or relative mention of when the workshop is, and the registration link, which, if needed, Twitter automatically shortens to 22 characters.
+                    </p>
+                    <p>
+                        At the moment, there are six different tweet templates, created using the workshop information. Each message is a value in a Python dictionary. The script then randomly selects one of the six and, if its less than 140 characters, it posts it to the D-Lab's Twitter account. Otherwise, it tries another tweet. If all options are exhausted—that is, if none of the tweets are within the length constraint—the script either goes to the next workshop or exits if there aren't anymore. The execution of the dbot script is scheduled using crontab.
+                    </p>
+                    <h3>Changes</h3>
+                    <p>
+                        We are constanly considering how to make dbot better. I have a list of updates for both the data gathering process and the tweets themselves. In order to avoid parsing through the entire RSS feed, I plan to implement a diffing process that only considers any changes from the previous time it was accessed. On the tweet side, there are already three additional tweet templates ready for me to push. More importantly, I plan to get and add instructor information to the tweets, including, where possible, the instructor's Twitter handle. A long term goal is to use NLP techniques on the titles and workshop descriptions to come up with an "about" snippet, eliminating the need to use the title itself.
+                    </p>
+                    <p>
+                        For additional details and source code, visit the <a href="https://github.com/juanshishido/dbot" target="_blank">dbot GitHub repo</a>.
+
+                </section>
+            </div>
+        </article>
+
+        <!-- Footer -->
+        <div id="contact">
+            <footer id="footer">
+
+                <h2><strong>Contact</strong></h2>
+                <ul class="icons">
+                    <li><a href="http://www.linkedin.com/in/juanshishido/" class="icon circle fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://twitter.com/juanshishido" class="icon circle fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://github.com/juanshishido" class="icon circle fa-github" target="_blank"><span class="label">Github</span></a></li>
+                </ul>
+
+                <ul class="copyright">
+                    <li><a href="index.html" class="smoothScroll">Juan Shishido</a></li><li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+                </ul>
+
+            </footer>
+        </div>
+
+
+    </body>
+</html>
