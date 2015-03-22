@@ -7,7 +7,6 @@ Based on @n33co's Twenty template. Currently hosted at: http://people.ischool.be
 * Look into the banner; it is pixelated on mobile
 * Fix the header: color transition on click from top
 * Add a img hover options
-* Create a Dbot page
 * Create a workshops section
 * Create a resume page
     * Think about where the best placement would be
