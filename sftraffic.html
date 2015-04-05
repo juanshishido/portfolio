@@ -112,28 +112,22 @@
                 weight: 0.5
             };
 
-            var sea = L.geoJson(traffic, { 
+            var sf = L.geoJson(traffic, { 
                 onEachFeature: markerSetup, 
                 pointToLayer: function (feature, latlng) {
-                    return L.circleMarker(jitter(latlng), tealMarkerOptions);
+                    return L.circleMarker(latlng, tealMarkerOptions);
                 }
             }); 
 
-            sea.addTo(map);
-            map.fitBounds(sea.getBounds(), { padding: [50, 50] });
+            sf.addTo(map);
+            map.fitBounds(sf.getBounds(), { padding: [50, 50] });
 
             function markerSetup(feature, layer) {
                 if (feature.properties && feature.properties.day) {
                     layer.bindPopup('Day of the Week: ' + feature.properties.day + '<br>District: ' + feature.properties.district + '<br>Address: ' + feature.properties.address + '<br>Resolution: ' + feature.properties.resolution);
                 }
             }
-            
-            function jitter(latlng) {
-                var lat = latlng.lat + 0;
-                var lng = latlng.lng + 0;
-                return L.latLng(lat, lng);
-            }
-        
+                    
         </script>
 
 
