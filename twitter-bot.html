@@ -187,6 +187,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A workshop by Dillon Niederhut and Juan Shishido.</p>
+<p>Interacting with <a href="https://twitter.com/tob_pohskrow" target="_blank"><strong>tob_pohskrow</strong></a>.</p>
 
 </div>
 </div>
@@ -318,7 +319,15 @@ div#notebook {
 <li><p>Someone here used a Twitter bot to occupy all of State Bird Provision's table reservations</p>
 </li>
 </ol>
-<h3 id="Twitter-is-Spam">Twitter is Spam<a class="anchor-link" href="#Twitter-is-Spam">&#182;</a></h3><ol>
+<h3 id="Twitter-is-opaque">Twitter is opaque<a class="anchor-link" href="#Twitter-is-opaque">&#182;</a></h3><ol>
+<li><p>Twitter's API does not return all tweets that match your search criteria</p>
+</li>
+<li><p>The sampling method is not published, and can change without notice</p>
+</li>
+<li><p>Location information is not necessarily provided by GPS</p>
+</li>
+</ol>
+<h3 id="Twitter-is-spam">Twitter is spam<a class="anchor-link" href="#Twitter-is-spam">&#182;</a></h3><ol>
 <li><p>Two years ago, approximately 20 million Twitter accounts were advertising bots</p>
 </li>
 <li><p>Appoximately 1/3 of any accounts followers are not humans</p>
@@ -860,10 +869,10 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">TwitterAPI</span> <span class="kn">import</span> <span class="n">TwitterAPI</span>
 
-<span class="n">consumer_key</span> <span class="o">=</span> <span class="s">&#39;xxxxxxxxxx&#39;</span>
-<span class="n">consumer_secret</span> <span class="o">=</span> <span class="s">&#39;xxxxxxxxxx&#39;</span>
-<span class="n">access_token_key</span> <span class="o">=</span> <span class="s">&#39;xxxxxxxxxx&#39;</span>
-<span class="n">access_token_secret</span> <span class="o">=</span> <span class="s">&#39;xxxxxxxxxx&#39;</span>
+<span class="n">consumer_key</span> <span class="o">=</span> <span class="s">&#39;9cQ7SNtWsmTTfta8Gv5y8svWD&#39;</span>
+<span class="n">consumer_secret</span> <span class="o">=</span> <span class="s">&#39;kjJllUPEJefFQ4Dfr6dBXDETiQaVWFXTt0zLSNMy8tY8F8IpqK&#39;</span>
+<span class="n">access_token_key</span> <span class="o">=</span> <span class="s">&#39;3129088320-dIfoDZOt5cIKVCFnJpS0krt3oCYPB13rk5ITavI&#39;</span>
+<span class="n">access_token_secret</span> <span class="o">=</span> <span class="s">&#39;H41REM344zgKCvJenCGGsF1JbFSK8I1r1WvFrc8Fs74jg&#39;</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">TwitterAPI</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="n">access_token_key</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
 </pre></div>
@@ -1361,8 +1370,25 @@ San Martín, Argentina, Argentina: Porque me desperté a esta hora -.
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">()</span>
-    <span class="c">#some python code that I&#39;ll add later</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">TwitterAPI</span> <span class="kn">import</span> <span class="n">TwitterAPI</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">consumer_key</span> <span class="o">=</span> <span class="s">&#39;9cQ7SNtWsmTTfta8Gv5y8svWD&#39;</span>
+<span class="n">consumer_secret</span> <span class="o">=</span> <span class="s">&#39;kjJllUPEJefFQ4Dfr6dBXDETiQaVWFXTt0zLSNMy8tY8F8IpqK&#39;</span>
+<span class="n">access_token_key</span> <span class="o">=</span> <span class="s">&#39;3129088320-dIfoDZOt5cIKVCFnJpS0krt3oCYPB13rk5ITavI&#39;</span>
+<span class="n">access_token_secret</span> <span class="o">=</span> <span class="s">&#39;H41REM344zgKCvJenCGGsF1JbFSK8I1r1WvFrc8Fs74jg&#39;</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">TwitterAPI</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="n">access_token_key</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;search/tweets&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;q&#39;</span><span class="p">:</span><span class="s">&#39;accepted berkeley&#39;</span><span class="p">})</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">][</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
+        <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;status&#39;</span><span class="p">:</span><span class="s">&#39;HOORAY! @&#39;</span> <span class="o">+</span> <span class="n">username</span><span class="p">}</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;statuses/update&#39;</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+        
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;main&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
@@ -1405,8 +1431,27 @@ San Martín, Argentina, Argentina: Porque me desperté a esta hora -.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you are using a mac (especially Mavericks or newer), Apple prefers that you use there scheduling daemon, called <code>launchd</code>.</p>
-<p><strong> <em>I'll look into launchd more this weekend.</em> </strong></p>
+<p>If you are using a mac (especially Mavericks or newer), Apple prefers that you use their init library, called <code>launchd</code>. <code>launchd</code> is a bit more complicated, and requires that you create an xml document that will be read by Apple's init service:</p>
+
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;twitter.bot&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;python&lt;/string&gt;
+        &lt;string&gt;twitter_bot.py&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;StartCalendarInterval&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;Minute&lt;/key&gt;
+        &lt;integer&gt;00&lt;/integer&gt;
+    &lt;/dict&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+<p>We won't be messing with <code>launchd</code> for this workshop.</p>
 
 </div>
 </div>
@@ -1416,7 +1461,7 @@ San Martín, Argentina, Argentina: Porque me desperté a esta hora -.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong> <em>How do you feel about adding code to show people how to create bots that interact with other users?</em> </strong></p>
+<h2 id="Now-it-is-time-for-you-to-make-your-own-twitter-bot!">Now it is time for you to make your own twitter bot!<a class="anchor-link" href="#Now-it-is-time-for-you-to-make-your-own-twitter-bot!">&#182;</a></h2><p>To get you started, here is a template in python. You should modify the search parameters and post parameters to get the bot to act the way you want.</p>
 
 </div>
 </div>
@@ -1426,7 +1471,34 @@ San Martín, Argentina, Argentina: Porque me desperté a esta hora -.
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre> 
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">TwitterAPI</span> <span class="kn">import</span> <span class="n">TwitterAPI</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">consumer_key</span> <span class="o">=</span> <span class="s">&#39;9cQ7SNtWsmTTfta8Gv5y8svWD&#39;</span>
+<span class="n">consumer_secret</span> <span class="o">=</span> <span class="s">&#39;kjJllUPEJefFQ4Dfr6dBXDETiQaVWFXTt0zLSNMy8tY8F8IpqK&#39;</span>
+<span class="n">access_token_key</span> <span class="o">=</span> <span class="s">&#39;3129088320-dIfoDZOt5cIKVCFnJpS0krt3oCYPB13rk5ITavI&#39;</span>
+<span class="n">access_token_secret</span> <span class="o">=</span> <span class="s">&#39;H41REM344zgKCvJenCGGsF1JbFSK8I1r1WvFrc8Fs74jg&#39;</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">TwitterAPI</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="n">access_token_key</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
+
+<span class="n">request_parameters</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;search/tweets&#39;</span><span class="p">,</span> <span class="n">request_parameters</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+                <span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
+                    <span class="n">post_parameters</span> <span class="o">=</span> <span class="p">{}</span>
+                    <span class="n">p</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;statuses/update&#39;</span><span class="p">,</span> <span class="n">post_parameters</span><span class="p">)</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">420</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+        
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;main&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
 </div>
