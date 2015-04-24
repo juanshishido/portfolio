@@ -211,7 +211,12 @@ div#notebook {
 <h3 id="Why-would-you-want-a-bot?">Why would you want a bot?<a class="anchor-link" href="#Why-would-you-want-a-bot?">&#182;</a></h3><p>For fun! For laughs. For productivity.</p>
 <h3 id="What-can-you-do-with-a-bot?">What can you do with a bot?<a class="anchor-link" href="#What-can-you-do-with-a-bot?">&#182;</a></h3><p>You can test code. You can use it to collect data. On Twitter, you can use a bot to post automated status updates. You can even use a bot can alert you when certain events happen (inside or outside of Twitter).</p>
 <p>At the D-Lab, we pull training/workshop information from our calendar, generate a tweet, and post it to the @DLabAtBerkeley account. We're trying to add more functionality, such as including instructor usernames in the tweets or processing the descriptions and titles to come up with a short, descriptive summary.</p>
+<p>A team of researchers led by Jacob Eisenstein used a bot to collect 107 million tweets, which were then used ot track the diffusion of linguistic variants across the United States.</p>
+<p><img src="https://d262ilb51hltx0.cloudfront.net/max/800/1*mlnsT2x2SL-e7JMo3HpWFg.png" alt="Figure1"></p>
 <p>There are lots of people doing interesting things with bots on Twitter. For inspiration, see: <a href="http://qz.com/279139/the-17-best-bots-on-twitter/">http://qz.com/279139/the-17-best-bots-on-twitter/</a>.</p>
+<p>Both of the world's most famous vocab-limited characters have Twitter accounts that reply with their catchphrases to anyone who mentions their name.</p>
+<p><a href="https://twitter.com/hodorhodorhodor">Hodor</a></p>
+<p><a href="https://twitter.com/GrootBot">Groot</a></p>
 <h3 id="How-can-you-do-it?">How can you do it?<a class="anchor-link" href="#How-can-you-do-it?">&#182;</a></h3><p>Read on.</p>
 
 </div>
@@ -369,7 +374,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">json</span>
@@ -394,27 +399,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">a_tweet</span><span class="p">[</span><span class="s">&#39;text&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>.IPA rettiwT eht tuoba nraeL
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -430,7 +421,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
@@ -439,83 +430,6 @@ div#notebook {
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{u&apos;contributors&apos;: None,
- u&apos;coordinates&apos;: None,
- u&apos;created_at&apos;: u&apos;Thu Apr 02 06:09:39 +0000 2015&apos;,
- u&apos;entities&apos;: {u&apos;hashtags&apos;: [],
-               u&apos;symbols&apos;: [],
-               u&apos;urls&apos;: [],
-               u&apos;user_mentions&apos;: []},
- u&apos;favorite_count&apos;: 0,
- u&apos;favorited&apos;: False,
- u&apos;geo&apos;: None,
- u&apos;id&apos;: 583511591334719488,
- u&apos;id_str&apos;: u&apos;583511591334719488&apos;,
- u&apos;in_reply_to_screen_name&apos;: None,
- u&apos;in_reply_to_status_id&apos;: None,
- u&apos;in_reply_to_status_id_str&apos;: None,
- u&apos;in_reply_to_user_id&apos;: None,
- u&apos;in_reply_to_user_id_str&apos;: None,
- u&apos;lang&apos;: u&apos;ht&apos;,
- u&apos;place&apos;: None,
- u&apos;retweet_count&apos;: 0,
- u&apos;retweeted&apos;: False,
- u&apos;source&apos;: u&apos;&lt;a href=&quot;http://twitter.com&quot; rel=&quot;nofollow&quot;&gt;Twitter Web Client&lt;/a&gt;&apos;,
- u&apos;text&apos;: u&apos;.IPA rettiwT eht tuoba nraeL&apos;,
- u&apos;truncated&apos;: False,
- u&apos;user&apos;: {u&apos;contributors_enabled&apos;: False,
-           u&apos;created_at&apos;: u&apos;Thu Apr 02 05:54:25 +0000 2015&apos;,
-           u&apos;default_profile&apos;: True,
-           u&apos;default_profile_image&apos;: False,
-           u&apos;description&apos;: u&apos;&apos;,
-           u&apos;entities&apos;: {u&apos;description&apos;: {u&apos;urls&apos;: []}},
-           u&apos;favourites_count&apos;: 0,
-           u&apos;follow_request_sent&apos;: False,
-           u&apos;followers_count&apos;: 0,
-           u&apos;following&apos;: False,
-           u&apos;friends_count&apos;: 0,
-           u&apos;geo_enabled&apos;: False,
-           u&apos;id&apos;: 3129088320,
-           u&apos;id_str&apos;: u&apos;3129088320&apos;,
-           u&apos;is_translation_enabled&apos;: False,
-           u&apos;is_translator&apos;: False,
-           u&apos;lang&apos;: u&apos;en&apos;,
-           u&apos;listed_count&apos;: 0,
-           u&apos;location&apos;: u&apos;&apos;,
-           u&apos;name&apos;: u&apos;Yelekreb Bald&apos;,
-           u&apos;notifications&apos;: False,
-           u&apos;profile_background_color&apos;: u&apos;C0DEED&apos;,
-           u&apos;profile_background_image_url&apos;: u&apos;http://abs.twimg.com/images/themes/theme1/bg.png&apos;,
-           u&apos;profile_background_image_url_https&apos;: u&apos;https://abs.twimg.com/images/themes/theme1/bg.png&apos;,
-           u&apos;profile_background_tile&apos;: False,
-           u&apos;profile_image_url&apos;: u&apos;http://pbs.twimg.com/profile_images/583509317476712449/mkd8KGeu_normal.jpg&apos;,
-           u&apos;profile_image_url_https&apos;: u&apos;https://pbs.twimg.com/profile_images/583509317476712449/mkd8KGeu_normal.jpg&apos;,
-           u&apos;profile_link_color&apos;: u&apos;0084B4&apos;,
-           u&apos;profile_location&apos;: None,
-           u&apos;profile_sidebar_border_color&apos;: u&apos;C0DEED&apos;,
-           u&apos;profile_sidebar_fill_color&apos;: u&apos;DDEEF6&apos;,
-           u&apos;profile_text_color&apos;: u&apos;333333&apos;,
-           u&apos;profile_use_background_image&apos;: True,
-           u&apos;protected&apos;: False,
-           u&apos;screen_name&apos;: u&apos;tob_pohskrow&apos;,
-           u&apos;statuses_count&apos;: 1,
-           u&apos;time_zone&apos;: None,
-           u&apos;url&apos;: None,
-           u&apos;utc_offset&apos;: None,
-           u&apos;verified&apos;: False}}
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -573,50 +487,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">a_tweet</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[u&apos;contributors&apos;,
- u&apos;truncated&apos;,
- u&apos;text&apos;,
- u&apos;in_reply_to_status_id&apos;,
- u&apos;id&apos;,
- u&apos;favorite_count&apos;,
- u&apos;source&apos;,
- u&apos;retweeted&apos;,
- u&apos;coordinates&apos;,
- u&apos;entities&apos;,
- u&apos;in_reply_to_screen_name&apos;,
- u&apos;id_str&apos;,
- u&apos;retweet_count&apos;,
- u&apos;in_reply_to_user_id&apos;,
- u&apos;favorited&apos;,
- u&apos;user&apos;,
- u&apos;geo&apos;,
- u&apos;in_reply_to_user_id_str&apos;,
- u&apos;lang&apos;,
- u&apos;created_at&apos;,
- u&apos;in_reply_to_status_id_str&apos;,
- u&apos;place&apos;]</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -633,29 +510,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">a_tweet</span><span class="p">[</span><span class="s">&#39;created_at&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>u&apos;Thu Apr 02 06:09:39 +0000 2015&apos;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -682,29 +543,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">a_tweet</span><span class="p">[</span><span class="s">&#39;entities&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{u&apos;hashtags&apos;: [], u&apos;symbols&apos;: [], u&apos;urls&apos;: [], u&apos;user_mentions&apos;: []}</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -721,29 +566,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">a_tweet</span><span class="p">[</span><span class="s">&#39;entities&#39;</span><span class="p">][</span><span class="s">&#39;hashtags&#39;</span><span class="p">]</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[]</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -760,29 +589,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="nb">type</span><span class="p">(</span><span class="n">a_tweet</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>dict</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -864,7 +677,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">TwitterAPI</span> <span class="kn">import</span> <span class="n">TwitterAPI</span>
@@ -925,60 +738,15 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;search/tweets&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;q&#39;</span><span class="p">:</span><span class="s">&#39;technology&#39;</span><span class="p">})</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">item</span><span class="p">[</span><span class="s">&#39;text&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span>
+    <span class="n">pprint</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>RT @MissFifii: My gen basically experienced the last of the oldschool and the beginning of technology.. We&apos;re quite lucky
-
-RT @LikChan: Great piece on Hidetaka Miyazaki (Souls/Bloodborne) by the @guardian. The quote at the end is priceless. XD http://t.co/gqaYNe…
-
-#WHOMADEYOURCLOTHES ? 
-The fashion students from Cape Peninsula University of Technology in Cape Town have been... http://t.co/OtSmIcsdaW
-
-#theguardian: China internet regulator slams Google&apos;s certificate refusal http://t.co/bBpvQ0Vpil
-
-RT @jugander: Spotify&apos;s non-uniform shuffle, engineered to &quot;feel more random to a human&quot;: http://t.co/uXH9iXQL9P
-
-I&apos;m at University of Business &amp;amp; Technology (UBT) Girls Campus in Jeddah https://t.co/NsRWeFX2el
-
-@TechXplore_com @physorg_com I think this technology is amazing however the potential toxicity of fumes worries me. Need urgent tests.
-
-Accra, April 1, GNA - Technology giant Samsung dominated Ghana Energy Commission&apos;s recently-released a list of ene… http://t.co/iTWAXDqRSZ
-
-RT @Kobusvanwyk: Technology in schools can only succeed if more attention is given to building digital skills among teachers.
-
-China internet regulator slams Google&apos;s certificate refusal: Move by search engine means warning display could... http://t.co/6ZqGfvB63A
-
-@1y1u1y1a うん？ICT(information communication technology)のこと？(就活病)
-
-تحديد موعد شهر رمضان 2015 فلكيا
-اقرأ التفاصيل http://t.co/izHjjJfA2K http://t.co/ijmZtbJeKh
-
-RT @ForbesTech: Google&apos;s driverless vehicles have already driven hundreds of thousands of miles: http://t.co/08aQHshInI http://t.co/Es1wpOe…
-
-RT @TweetsByARob: Mobile Technology in #Transportation Management &amp;amp; The Future Impact on the #SupplyChain w/@Catavolt http://t.co/NBGCMp88JL
-
-China internet regulator slams Google&apos;s certificate refusal: Move by search engine means warning display could... http://t.co/iTuZL9uWAT
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1006,7 +774,7 @@ China internet regulator slams Google&apos;s certificate refusal: Move by search
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">end_point</span> <span class="o">=</span> <span class="s">&#39;search/tweets&#39;</span>
@@ -1021,21 +789,6 @@ China internet regulator slams Google&apos;s certificate refusal: Move by search
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>RT @googlemaps: Chase those blue ghosts all the way to Giza. Play #PacMaps on #GoogleMaps. http://t.co/iut2yHwlMl
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1061,7 +814,7 @@ China internet regulator slams Google&apos;s certificate refusal: Move by search
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">end_point</span> <span class="o">=</span> <span class="s">&#39;statuses/user_timeline&#39;</span>
@@ -1079,20 +832,6 @@ China internet regulator slams Google&apos;s certificate refusal: Move by search
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>#DidYouKnow... both actors who portrayed Sulu on #StarTrek attended UC Berkeley? @GeorgeTakei &amp;amp; @JohnTheCho http://t.co/mOLSS6vRZi #trekkie
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1105,7 +844,7 @@ China internet regulator slams Google&apos;s certificate refusal: Move by search
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">end_point</span> <span class="o">=</span> <span class="s">&#39;search/tweets&#39;</span>
@@ -1124,20 +863,6 @@ China internet regulator slams Google&apos;s certificate refusal: Move by search
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>RT @GarwoodCenter: Rikesh Patel of @Mindteck shares how technology can make for Smarter Cities #UGBA193i #SmartCities #Openinnovation http:…
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1150,7 +875,7 @@ China internet regulator slams Google&apos;s certificate refusal: Move by search
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">end_point</span> <span class="o">=</span> <span class="s">&#39;search/tweets&#39;</span>
@@ -1169,20 +894,6 @@ China internet regulator slams Google&apos;s certificate refusal: Move by search
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Itinéraires des photographes voyageurs. 25e | Itinéraires des Photographes Voyageurs #JaimeTonAsso http://t.co/oFSnmouLxG via @HelloAsso
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1195,7 +906,7 @@ China internet regulator slams Google&apos;s certificate refusal: Move by search
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">end_point</span> <span class="o">=</span> <span class="s">&#39;statuses/filter&#39;</span>
@@ -1212,52 +923,6 @@ China internet regulator slams Google&apos;s certificate refusal: Move by search
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Avaré, São Paulo, Brasil: @Evvuska bo día.
-teña un gran día.
-bo festivo.
-eu aínda traballo hoxe 
-
-Los Angeles, CA, United States: @ValeryCollins Thanks! Mine is https://t.co/8oPWsWkM07 
-
-Manchester, England, United Kingdom: @moorcroftlad got back yesterday. Was with work so no time to tweet. In Portland 10th-16th 
-
-Parit Tinggi, Negeri Sembilan, Malaysia: @AnisZulkiflee23 haah duit aina pun kurang taktau kenapa... kenapa eh??? 
-
-北海道 旭川市, 日本: 車できたーテンション上がる〜(￣ー￣)🎶 http://t.co/47bUGt8laH 
-
-Shibuya, Tokyo, 日本: Beautiful flowers in Yebisu Garden Place. Spring it is. #perrysjapan2015 #pplsolotripat41… https://t.co/fnNaa2S4Kb 
-
-Москва, Россия, Rossiya: текущий плейлист 
-
-Montale, Toscana, Italia: Il giorno dopo la corsa: sembro una vecchia di 80 anni con decadimento muscoloscheletrico. #qualcunomiaiutiadalzarmidaletto 
-
-São Paulo, Brasil, Brasil: @eduardo00697101 @A60774249 @GarciaRego @Josgmelo @mirtacuerva @reginac66472149 AMÉM! Feliz quinta abençoada?🙏👍 
-
-Doveridge, England, United Kingdom: Otherwise id be wrong 
-
-Kuala Kuantan, Pahang, Malaysia: Ya allab..😭😭😭 
-
-İnegöl, Bursa, Türkiye: I&apos;m at Pizza House &amp;amp; Coffee Corner in Bursa inegöl w/ @gamzee_krks @miracc07 https://t.co/BA2j6iE88E 
-
-Altônia, Paraná, Brasil: Pensando seriamente em voltar dormir 
-
-Donegal, Ireland, Ireland: Meanwhile it&apos;s actually summertime now in the Philippines. Oh how cruel! 😢 all the celebs be having their vacay. #sojelly 
-
-San Martín, Argentina, Argentina: Porque me desperté a esta hora -. 
-
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1315,7 +980,6 @@ San Martín, Argentina, Argentina: Porque me desperté a esta hora -.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Now that you know how to search for tweets, how about we save them?</p>
-<p><strong> <em>ADD EXAMPLE OF USING THE STREAMING API TO SAVE DATA</em> </strong></p>
 
 </div>
 </div>
@@ -1328,7 +992,7 @@ San Martín, Argentina, Argentina: Porque me desperté a esta hora -.
 <div class=" highlight hl-ipython2"><pre><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s">&#39;id_str&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;.json&#39;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1370,27 +1034,15 @@ San Martín, Argentina, Argentina: Porque me desperté a esta hora -.
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">TwitterAPI</span> <span class="kn">import</span> <span class="n">TwitterAPI</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">time</span>
 
-<span class="n">consumer_key</span> <span class="o">=</span> <span class="s">&#39;9cQ7SNtWsmTTfta8Gv5y8svWD&#39;</span>
-<span class="n">consumer_secret</span> <span class="o">=</span> <span class="s">&#39;kjJllUPEJefFQ4Dfr6dBXDETiQaVWFXTt0zLSNMy8tY8F8IpqK&#39;</span>
-<span class="n">access_token_key</span> <span class="o">=</span> <span class="s">&#39;3129088320-dIfoDZOt5cIKVCFnJpS0krt3oCYPB13rk5ITavI&#39;</span>
-<span class="n">access_token_secret</span> <span class="o">=</span> <span class="s">&#39;H41REM344zgKCvJenCGGsF1JbFSK8I1r1WvFrc8Fs74jg&#39;</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">TwitterAPI</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="n">access_token_key</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;search/tweets&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;q&#39;</span><span class="p">:</span><span class="s">&#39;accepted berkeley&#39;</span><span class="p">})</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
-        <span class="n">username</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">][</span><span class="s">&#39;name&#39;</span><span class="p">]</span>
-        <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;status&#39;</span><span class="p">:</span><span class="s">&#39;HOORAY! @&#39;</span> <span class="o">+</span> <span class="n">username</span><span class="p">}</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;statuses/update&#39;</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-        <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
-        
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;main&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;search/tweets&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;q&#39;</span><span class="p">:</span><span class="s">&#39;accepted berkeley&#39;</span><span class="p">})</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s">&#39;user&#39;</span><span class="p">][</span><span class="s">&#39;screen_name&#39;</span><span class="p">]</span>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;status&#39;</span><span class="p">:</span><span class="s">&#39;HOORAY! @&#39;</span> <span class="o">+</span> <span class="n">username</span><span class="p">}</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;statuses/update&#39;</span><span class="p">,</span> <span class="n">parameters</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
 </pre></div>
 
 </div>
@@ -1417,8 +1069,9 @@ San Martín, Argentina, Argentina: Porque me desperté a esta hora -.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c"># That thing after crontab is a lowercase L even though it looks like a 1</span>
-<span class="c"># This will execute directly through your shell, so use with caution</span>
-<span class="c">#!crontab -l | { cat; echo &quot;0 * * * * python twitter_bot.py&quot;; } | crontab -</span>
+<span class="c"># This will execute directly through your shell, so use at your own risk</span>
+<span class="c"># Make sure you replace the &lt;&gt; with the file path</span>
+<span class="o">!</span>crontab -l <span class="p">|</span> <span class="o">{</span> cat<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;0 * * * * python &lt;absolute path to&gt;twitter_bot.py&quot;</span><span class="p">;</span> <span class="o">}</span> <span class="p">|</span> crontab -
 </pre></div>
 
 </div>
@@ -1462,6 +1115,7 @@ San Martín, Argentina, Argentina: Porque me desperté a esta hora -.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Now-it-is-time-for-you-to-make-your-own-twitter-bot!">Now it is time for you to make your own twitter bot!<a class="anchor-link" href="#Now-it-is-time-for-you-to-make-your-own-twitter-bot!">&#182;</a></h2><p>To get you started, here is a template in python. You should modify the search parameters and post parameters to get the bot to act the way you want.</p>
+<p>You might find it easier to copy this out of the notebook into a python script and run it from your terminal.</p>
 
 </div>
 </div>
@@ -1481,24 +1135,62 @@ San Martín, Argentina, Argentina: Porque me desperté a esta hora -.
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">TwitterAPI</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">,</span> <span class="n">access_token_key</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
 
-<span class="n">request_parameters</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">request_parameters</span> <span class="o">=</span> <span class="p">{}</span> <span class="c">#Enter your search parameters here</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span> <span class="c">#You may want to set a condition here</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;search/tweets&#39;</span><span class="p">,</span> <span class="n">request_parameters</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">get_iterator</span><span class="p">():</span>
-                <span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
-                    <span class="n">post_parameters</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">if</span> <span class="bp">True</span><span class="p">:</span> <span class="c">#You may want to set a condition here</span>
+                    <span class="n">post_parameters</span> <span class="o">=</span> <span class="p">{}</span> <span class="c">#Enter your post parameters here</span>
                     <span class="n">p</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;statuses/update&#39;</span><span class="p">,</span> <span class="n">post_parameters</span><span class="p">)</span>
                     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">420</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">420</span><span class="p">:</span> <span class="c">#If Twitter is throttling you</span>
             <span class="k">break</span>
-        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">429</span><span class="p">:</span> <span class="c">#If you are exceeding the rate limit</span>
             <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
         
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;main&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can see an example of how to set conditions and search parameters <a href="https://github.com/deniederhut/city_mood/blob/master/city_mood.py">in the code</a> that powers the <a href="https://twitter.com/BerkeleyMood">berkeleymood Twitter bot</a></p>
+<p>If you have tried to run this, or some of the earlier code in this notebook, you have probably encountered some of Twitter's error codes. Here are the most common, and why you are triggering them.</p>
+<ol>
+<li><p><code>400 = bad request</code> - This means the API (middleman) doesn't like how you formatted your request. Check the API documentation to make sure you are doing things correctly.</p>
+</li>
+<li><p><code>401 = unauthorized</code> - This either means you entered your auth codes incorrectly, or those auth codes don't have permission to do what you're trying to do. It takes Twitter a while to assign posting rights to your auth tokens after you've given them your phone number. If you have just done this, wait five minutes, then try again.</p>
+</li>
+<li><p><code>403 = forbidden</code> - Twitter won't let you post what you are trying to post, most likely because you are trying to post the same tweet twice in a row within a few minutes of each other. Try changing your status update. If that doesn't fix it, then you are either:</p>
+<p>A. Hitting Twitter's daily posting limit. They don't say what this is.</p>
+<p>B. Trying to follow too many people, rapidly following and unfollowing the same person, or are otherwise making Twitter think you are a spambot</p>
+</li>
+<li><p><code>420 = enhance your calm</code> - Simultaneously a joke about <a href="http://www.huffingtonpost.com/2010/04/20/420-meaning-the-true-stor_n_543854.html">San Rafael High students</a> and <a href="https://youtu.be/YnSIOlF132w">Sylverster Stallone's prescient film about the future</a>, it has been deprecated in favor of:</p>
+</li>
+<li><p><code>429 = too many requests</code> - This means that you have exceeded Twitter's rate limit for whatever it is you are trying to do. Increase your  <code>time.sleep()</code>  value.</p>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
 </pre></div>
 
 </div>
