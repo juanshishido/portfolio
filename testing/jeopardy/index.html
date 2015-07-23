@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>This.. is.. Jeopardy!</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/cal-heatmap.js"></script>
+    <script src="js/biPartite.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="http://momentjs.com/downloads/moment.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./css/cal-heatmap.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+	
+</head>
+
+<body>
+
+    <!-- <section id="players" style="width:1000px">
+        <h2>The Players</h2>
+
+        <p>
+            Jeopardy! is an American TV quiz game show where contestants are given clues about general knowledge in the form of an answer which they must respond to with the correct corresponding question. Although the show debuted in 1964, our visualizations focus on the program’s most successful syndicated version, which began in 1984 with Alex Trebek as its host.
+        </p>
+
+        <h4>Jeopardy! Contestants</h4>
+
+        <p>
+            Jeopardy! has a grueling audition process. Applicants must take a challenging written exam, compete one-on-one interviews and successfully compete in mock games. Only a lucky 0.4% make it on to the show.
+
+            <img src="./img/podiums.png" style="width:100%">
+        </p>
+
+        <h4>Gender Divide</h4>
+
+        <p>
+            Of the contestants who do get on, fewer are women. The gender gap has long been known to exist on Jeopardy! According to Alex Trebek, the producers have been working over the years to attract more women to the show, which has been successful to an extent. However even with more women on the show, the percentage of winners continues to be less than the percentage of players.
+        </p>
+
+        <img src="./img/hand-buzzer.png" style="width: 100%">
+
+        <div id="hcontainer"></div>
+
+        <h4>The Production Crew</h4>
+
+        <p>
+            Some people cite gender bias caused by a lack of females on the production staff. The executive producer and editorial producer who must approve all questions are both male. And currently only 2 out of 8 clue writers are female.
+        </p>
+
+        <img src="./img/writers.png" style="width: 100%"> <br/><br/>
+    </section> -->
+
+    <section id="wagers" style="width:1000px">
+        <!-- <h2>Wagers</h2>
+
+        <p>
+            Jeopardy has three rounds: Jeopardy!, Double Jeopardy! and Final Jeopardy!. Contestants collectively answer 30 questions in each round before they reach the Final Jeopardy. At this point, they must decide what percentage of their current earnings they would like to wager on the Final Round. It presents them with an opportunity to double it or lose it. Contestants have different strategies, most very strongly tied to their position at that point of time.
+        </p>
+        
+        <p>
+            In the next set of visualizations, we would like to go through the process of analyzing and understanding the different habits on display as people decide their FINAL WAGERS.
+        </p>
+
+        <h4>Trend Analysis of Player Performace</h4>
+
+        <p>
+            The number of episodes that have recorded has drastially changed with time and so has the amount of money that people have won on the show. Due to a lack of data from earlier years, we found graphs visualizing data on an annual basis to be misleading. To compensate for this, we decided to allow the user to navigate by season (each a year long) and linked to each episode in the season, one can see how the game played out.
+        </p>
+
+        <p>
+            <h5>Was there an outright winner or a last minute upset?</h5>
+        </p>
+
+        <p>
+            <h5>Do players on top always bet very safe or have they just become more cautious over time?</h5>
+        </p>
+
+        <p>
+           <h5>Do players on third never comeback to win? Or is it just a recent trend?</h5>
+        </p> -->
+
+        <!-- SLIDER -->
+        <section id="slider-container" style="height:175px">
+            <div id="slider-chart" style="margin:0px"></div>
+            
+            <span>1</span>
+            <input id="rangeinput" type="range" class="slider-width" min="1" max="30" value="1"></input>
+            <span>30</span>
+
+            <p>
+                Use the slider above to select a season.
+            </p>
+        </section>
+
+        <!-- HEATMAP -->
+        <section id="heatmap-container" style="height:175px">
+            <div id="cal-heatmap"></div>
+        </section>
+
+        <!-- LINE CHART -->
+        <!-- <section id="linechart-container">
+            <div id="linechart"></div>
+        </section> -->
+
+        <!-- SCATTER & BIPARTITE-->
+        <section id="scatter-container">
+            <div id="scatter">
+                <div id="y-filter">
+                    <b>Wager:</b>
+                </div>
+                
+                <div id="scatter-chart"></div>
+                <!-- <div id="scatter-chart" style="float: left"></div> -->
+
+                <!-- <div id="bipartite" style="float: right"></div> -->
+            </div>
+        </section>
+    </section>
+
+    <!-- SCRIPTS -->
+    <!-- <script src="./js/highchartviz.js"></script> -->
+    <script src="./js/heatmap.js"></script>
+    <script src="./js/scatter-slider.js"></script>
+    <!-- <script src="./js/line.js"></script> -->
+    <!-- <script src="./js/season-change.js"></script> -->
+
+    <!-- <script>
+
+        var bipartiteData;
+        d3.csv("./data/bipartite.csv", function(data) {
+            var bipartiteData = data.filter(function(d) {
+                    // if (d["season"] == 1) {
+                    //     return [d["place_before"], d[2], +d[3]];
+                    // }
+                    return [d["place_before"], d[2], +d[3]];
+            });
+            bipartiteData = bipartiteData.map(function(d) {
+                return [d.place_before, d.place_after, +d.count];
+            });
+
+            var width = 450, height = 400, margin ={b:200, t:75, l:150, r:75};
+
+            var svg = d3.select("#bipartite")
+                .append("svg").attr('width',width).attr('height',(height+margin.b+margin.t))
+                .append("g").attr("transform","translate("+ margin.l+","+margin.t+")");
+
+            var data = [ 
+                {data:bP.partData(bipartiteData,2), id:'SalesAttempts', header:["Before","After"]}
+            ];
+
+            bP.draw(data, svg);
+        });
+
+    </script> -->
+
+</body>
+</html>
