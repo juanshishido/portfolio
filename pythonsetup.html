@@ -20,6 +20,12 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script src="js/smoothscroll.js"></script>
 
+        <link rel="stylesheet" type="text/css" media="screen" href="http://cdnjs.cloudflare.com/ajax/libs/fancybox/1.3.4/jquery.fancybox-1.3.4.css" />
+        <style type="text/css">
+            a.fancybox img {
+                border: none;
+            } 
+        </style>
 
     </head>
 
@@ -174,7 +180,7 @@ $ pip install seaborn
                     <p>
                         Below, I show the process of creating a virtual environment, installing a Python package to it (and listing installed packages), and deactivating it.
                     </p>
-                    <img src="images/virtualenvwrapper-create.png" style="width:100%"><br/><br/>
+                    <img src="images/virtualenvwrapper-create.png" class="fancybox" style="width:100%"><br/><br/>
                     <p>
                         Notice the active virtual environment name in the parentheses. (Note that your prompt might look different based on any customizations you may have done.) In this example, <code>pip list</code> shows us that <code>numpy</code>, <code>pip</code>, <code>setuptools</code>, and <code>wheel</code> are installed&mdash;the last three are installed with each virtual environment instance by default.
                     </p>
@@ -225,6 +231,29 @@ $ mkvirtualenv -p python3 &#60;name&#62;
             </footer>
         </div>
 
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/fancybox/1.3.4/jquery.fancybox-1.3.4.pack.min.js"></script>
+        <script type="text/javascript">
+            $(function($){
+                var addToAll = false;
+                var gallery = false;
+                var titlePosition = 'over';
+                $(addToAll ? 'img' : 'img.fancybox').each(function(){
+                    var $this = $(this);
+                    var title = $this.attr('title');
+                    var src = $this.attr('data-big') || $this.attr('src');
+                    var a = $('<a href="#" class="fancybox"></a>').attr('href', src).attr('title', title);
+                    $this.wrap(a);
+                });
+                if (gallery)
+                    $('a.fancybox').attr('rel', 'fancyboxgallery');
+                $('a.fancybox').fancybox({
+                    titlePosition: titlePosition
+                });
+            });
+            $.noConflict();
+        </script>
 
     </body>
 </html>
