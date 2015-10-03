@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Python Setup</title>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.scrolly.min.js"></script>
+        <script src="js/jquery.scrollgress.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-layers.min.js"></script>
+        <script src="js/init.js"></script>
+
+        <noscript>
+            <link rel="stylesheet" href="css/skel.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-wide.css" />
+            <link rel="stylesheet" href="css/style-noscript.css" />
+        </noscript>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="js/smoothscroll.js"></script>
+
+
+    </head>
+
+
+    <body class="index">
+
+       <!-- Header -->
+        <header id="header" style="position: fixed; top: 0px; left: 0px; right: 0px; z-index: 1030;">
+            <h1 id="logo"><a href="index.html">Home</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#top" class="smoothScroll">^</a></li>
+                    <li><a href="#contact" class="smoothScroll">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main -->
+        <article id="main">
+
+            <!-- Emoji -->
+            <div id="top">
+                <section class="wrapper style3 container">
+
+                    <header>
+                        <h2><center>Python Setup</center></h2>
+                    </header>
+                    
+                    <!-- Text -->
+                    <h3>Intro</h3>
+                    <p>
+                        Setting up your Python environment, especially when you're new to coding, can be overwhelming. There are various options that aim to make the process easier. <a href="https://www.continuum.io/downloads" target="_blank">Anaconda</a>, for example, is a free distribution that includes over "300 of the most popular Python packages." For many people, this is a great solution. For individuals who want control over which packages are installed, <a href="http://conda.pydata.org/miniconda.html" target="_blank">Miniconda</a> might be a good option.
+                    </p>
+                    <p>
+                        When I originally set up my environment, I installed all packages to the global Python&mdash;the one that came bundled with OS X&mdash;<code>site-packages</code> directory. Toward the end of my first semester of graduate school, an installation of a new package broke an existing one. I had to restore (erase and reinstall OS X) my system.
+                    </p>
+                    <p>
+                        The second time around, I used virtual environments, which isolate their associated Python packages into their own directories. If something goes wrong, the directory can simply be deleted. For more information on using <code>virtualenv</code> and <code>virtualenvwrapper</code> check out this <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/" target="_blank">article</a> from The Hitchhiker's Guide to Python.
+                    </p>
+                    <p>
+                        In this post, I'll explain how to set up your Python environment in Mac OS X (currently 10.10.5) and how to use <code>virtualenvwrapper</code>.
+                    </p>
+
+                    <h3>Set Up</h3>
+                    <p>
+                        There are a few things which must be installed prior to getting into Python. We'll need to install Xcode's command line tools, which installs the GNU Compiler Collection, as well as <a href="http://brew.sh/" target="_blank"><code>homebrew</code></a>, a package manager for OS X. Depending on the version of your OS, you might also need to install <a href="http://xquartz.macosforge.org/landing/" target="_blank">Xquartz</a>. You'll find out when you try installing Python.
+                    </p>
+                    <p>
+                        First, if you don't already have Xcode, you'll want to install it. For our purposes, we can simply install the command line tools, a much smaller download.
+                    </p>
+<pre>
+$ xcode-select --install
+
+</pre>
+                    <p>
+                        Next, we'll want to install <code>homebrew</code>.
+                    </p>
+<pre>
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+</pre>
+                    <p>
+                        To ensure that it installed successfully, run the following.
+                    </p>
+<pre>
+$ brew doctor
+$ brew update
+
+</pre>
+                    <p>
+                        Also, make sure that <code>/usr/local/bin</code> is at the top of your <code>PATH</code> environment variable.
+                    </p>
+                    <p>
+                        Now, we can install Python. If you're on OS X, you'll already have Python installed, but installing from <code>homebrew</code> has many benefits. For a nice list, read this <a href="http://hackercodex.com/guide/python-development-environment-on-mac-osx/#python" target="_blank">Hacker Codex post</a>. Let's install both Python2 and Python3.
+                    </p>
+<pre>
+$ brew install python
+$ brew install python3
+
+</pre>
+                    <p>
+                        Let's check that our newly installed versions of Python point to the correct locations. The expected output is shown below each command. We'll do the same for <code>pip</code>, which we'll be using for installing Python packages.
+                    </p>
+<pre>
+$ which python
+/usr/local/bin/python
+
+$ which python3
+/usr/local/bin/python3
+
+$ which pip
+/usr/local/bin/pip
+
+</pre>
+                    <p>
+                        To install <code>virtualenv</code> and <code>virtualenvwrapper</code>, use <code>pip</code>.
+                    </p>
+<pre>
+$ pip install virtualenv
+$ pip install virtualenvwrapper
+
+</pre>
+                    <p>
+                        You'll also need to add a directory that will be the home for the virtual environments you decide to create. I created the <code>.virtualenvs</code>, as shown below.
+                    </p>
+<pre>
+$ mkdir ~/.virtualenvs
+
+</pre>
+                    <p>
+                        You can name the directory whatever you like, but note that you'll have to replace <code>.virtualenvs</code> with the name of your directory in the code that follows.
+                    </p>
+                    <p>
+                        If you use <code>bash</code>, which is the default shell in OS X, you'll need to add the following to your <code>~/.bashrc</code> file. This let's <code>virtualenv</code> know where to put the virtual environments.
+                    </p>
+<pre>
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+</pre>
+                    <p>
+                        That's actually it for the set up! It seems like a lot, but this work up front will pay itself off down the line.
+                    </p>
+                    <p>
+                        <strong>Recap.</strong> We installed: command line tools, <code>homebrew</code>, Python, and <code>virtualenv</code> and <code>virtualenvwrapper</code>. We also modified our <code>.bashrc</code> file.
+                    </p>
+
+                    <h3>Creating Virtual Environments</h3>
+                    <h4>Python 2.7</h4>
+                    <p>
+                        Let's discuss how to create and use our virtual environments. To create a new one, use the following.
+                    </p>
+<pre>
+$ mkvirtualenv datascience
+
+</pre>
+                    <p>
+                        This has created a new folder inside of <code>.virtualenvs</code> called <code>datascience</code>. It has also activited the virtual environment. This means that you have access to any Python packages associated with that environment&mdash;to see what's currently installed use <code>pip list</code>&mdash;and that any package installs will be put in <code>$HOME/.virtualenvs/datascience/lib/python2.7/site-packages</code>. (<code>$HOME</code> is just a variable that contains the address of your home directory. In the terminal, run <code>echo $HOME</code> to see your home directory path.)
+                    </p>
+                    <p>
+                        Since we're interested in data science, let's install the following packages.
+                    </p>
+<pre>
+$ pip install numpy scipy matplotlib pandas scikit-learn statsmodels
+$ pip install --upgrade jupyter
+$ pip install seaborn
+
+</pre>
+                    <p>
+                        If you then <code>pip list</code>, you'll see all the above packages listed (along with some default ones). To exit the virtual environment, simply type <code>deactivate</code> at the terminal.
+                    </p>
+                    <p>
+                        Below, I show the process of creating a virtual environment, installing a Python package to it (and listing installed packages), and deactivating it.
+                    </p>
+                    <img src="images/virtualenvwrapper-create.png" style="width:100%"><br/><br/>
+                    <p>
+                        Notice the active virtual environment name in the parentheses. (Note that your prompt might look different based on any customizations you may have done.) In this example, <code>pip list</code> shows us that <code>numpy</code>, <code>pip</code>, <code>setuptools</code>, and <code>wheel</code> are installed&mdash;the last three are installed with each virtual environment instance by default.
+                    </p>
+                    <p>
+                        You can create more than one virtual environment. In fact, that's the point. Virtual environments were created to help "keep the dependencies required by different projects in separate places." This is a common practice for developers. Data scientists might want to create virtual environments for specific tasks. For example, one for machine learning, one for web scraping, one for natural language processing, etc.
+                    </p>
+                    <p>
+                        To keep track of the virtual environments you've created, use <code>lsvirtualenv -b</code>. To activate an existing virtual environment, assuming you're not already in one, use <code>workon &#60;name&#62;</code>. If you ever want to delete a virtual environment, just use <code>rmvirtualenv &#60;name&#62;</code>.
+                    </p>
+                    <h4>Python 3</h4>
+                    <p>
+                        Let's say you're ready to start using Python 3, which is highly recommended. (If you're not convinced, watch Jake VanderPlas's SciPy 2015 keynote, "<a href="https://www.youtube.com/watch?v=5GlNDD7qbP4" target="_blank">The State of the Stack</a>.") If you want to create a virtual environment that uses Python 3, do the following.
+                    </p>
+<pre>
+$ mkvirtualenv -p python3 &#60;name&#62;
+
+</pre>
+                    <p>
+                        This new virtual environment will now use Python 3 by default. Everything else works as explained above.
+                    </p>
+
+                    <h3>Final Thoughts</h3>
+                    <p>
+                        That's it! Your Python environment is now set up such that you can more effectively control packages and how they interact.
+                    </p>
+                    <p>
+                        Special thanks to <a href="http://nerderati.com/2014/09/03/installing-matplotlib-numpy-scipy-nltk-and-pandas-on-os-x-without-going-crazy/" target="_blank">Jo&euml;l Parras</a> and <a href="http://www.marinamele.com/2014/07/install-python3-on-mac-os-x-and-use-virtualenv-and-virtualenvwrapper.html" target="_blank">Marina Mele</a> for their fantastic tutorials on this subject, which much of this post is based on.
+                    </p>
+                </section>
+            </div>
+        </article>
+
+        <!-- Footer -->
+        <div id="contact">
+            <footer id="footer">
+
+                <h2><strong>Contact</strong></h2>
+                <ul class="icons">
+                    <li><a href="http://www.linkedin.com/in/juanshishido/" class="icon circle fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://twitter.com/juanshishido" class="icon circle fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+                    <li><a href="https://github.com/juanshishido" class="icon circle fa-github" target="_blank"><span class="label">Github</span></a></li>
+                </ul>
+
+                <ul class="copyright">
+                    <li><a href="index.html" class="smoothScroll">Juan Shishido</a></li><li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+                </ul>
+
+            </footer>
+        </div>
+
+
+    </body>
+</html>
