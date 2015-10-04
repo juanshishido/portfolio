@@ -1,7 +1,10 @@
 # portfolio
+
+**Development moved to: https://github.com/juanshishido/juanshishido.github.io**
+
 A website of my projects, interests, and professional experience.
 
-Based on @n33co's Twenty template. Currently hosted at: http://people.ischool.berkeley.edu/~juanshishido/.
+Based on @n33co's Twenty template. Currently hosted at: http://juanshishido.github.io/.
 
 ## To Do
 * Look into the banner; it is pixelated on mobile
