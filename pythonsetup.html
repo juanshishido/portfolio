@@ -163,14 +163,14 @@ $ mkvirtualenv datascience
 
 </pre>
                     <p>
-                        This has created a new folder inside of <code>.virtualenvs</code> called <code>datascience</code>. It has also activited the virtual environment. This means that you have access to any Python packages associated with that environment&mdash;to see what's currently installed use <code>pip list</code>&mdash;and that any package installs will be put in <code>$HOME/.virtualenvs/datascience/lib/python2.7/site-packages</code>. (<code>$HOME</code> is just a variable that contains the address of your home directory. In the terminal, run <code>echo $HOME</code> to see your home directory path.)
+                        This has created a new folder inside of <code>.virtualenvs</code> called <code>datascience</code>. It has also activated the virtual environment. This means that you have access to any Python packages associated with that environment&mdash;to see what's currently installed use <code>pip list</code>&mdash;and that any package installs will be put in <code>$HOME/.virtualenvs/datascience/lib/python2.7/site-packages</code>. (<code>$HOME</code> is just a variable that contains the address of your home directory. In the terminal, run <code>echo $HOME</code> to see your home directory path.)
                     </p>
                     <p>
                         Since we're interested in data science, let's install the following packages.
                     </p>
 <pre>
 $ pip install numpy scipy matplotlib pandas scikit-learn statsmodels
-$ pip install --upgrade jupyter
+$ pip install jupyter
 $ pip install seaborn
 
 </pre>
